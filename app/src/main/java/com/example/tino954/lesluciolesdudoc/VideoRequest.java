@@ -14,11 +14,9 @@ public class VideoRequest extends StringRequest{
     private static final String VIDEO_REQUEST_URL = "http://www.lesluciolesdudoc.org/intranet/ressources/MobileApp/videoRequest.php";
     private Map<String, String> params;
 
-    VideoRequest(String email, String password, Response.Listener<String> listener) {
+    VideoRequest(Response.Listener<String> listener) {
         super(Request.Method.POST, VIDEO_REQUEST_URL, listener, null);
         params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
     }
 
     @Override
