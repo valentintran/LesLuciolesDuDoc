@@ -4,7 +4,8 @@
     android:layout_height="95dp"
     android:orientation="horizontal"
     android:gravity="center"
-    android:background="?android:attr/activatedBackgroundIndicator">
+    android:background="?android:attr/activatedBackgroundIndicator"
+    style="@style/Theme.Black.NoTitleBar.AppTheme">
 
     <com.google.android.youtube.player.YouTubeThumbnailView
         android:id="@+id/thumbnail"
@@ -22,6 +23,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="5dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#fff"/>
+        android:textColor="#000000"/>
 
 </LinearLayout>

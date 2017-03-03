@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    style="@style/Theme.Black.NoTitleBar.AppTheme">
 
     <TextView
         android:layout_width="0dp"
@@ -10,7 +11,8 @@
         android:layout_weight="1"
         android:textAppearance="@android:style/TextAppearance.Small"
         android:gravity="center"
-        android:text="@string/playerfragment_text"/>
+        android:text="@string/playerfragment_text"
+        android:textColor="#000000"/>
 
     <fragment
         android:name="com.google.android.youtube.player.YouTubePlayerFragment"

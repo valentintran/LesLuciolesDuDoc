@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/acttivity_main"
@@ -47,7 +48,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:layout_centerVertical="true"
+        android:layout_margin="12dp"
+        android:layout_below="@+id/etPassword"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -65,20 +67,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@id/bLogin"
+        android:layout_alignStart="@id/bLogin"
         android:layout_marginBottom="23dp"
         android:textSize="15sp"
         android:textColor="#000000"
-        android:id="@+id/tvSeeTheVersion" />
+        android:id="@+id/tvSeeTheVersion"
+        android:layout_alignLeft="@id/bLogin" />
 
     <TextView
         android:text="@string/browser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/bLogin"
         android:layout_alignTop="@+id/tvSeeTheVersion"
         android:layout_toRightOf="@+id/tvSeeTheVersion"
         android:layout_toEndOf="@+id/tvSeeTheVersion"
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="start"
         android:textSize="15sp"
         android:textColor="#FF0209CC"
         android:id="@+id/tvBrowser" />

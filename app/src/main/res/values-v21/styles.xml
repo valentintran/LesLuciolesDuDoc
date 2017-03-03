@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Black.NoTitleBar.AppTheme" parent="android:Theme.Light.NoTitleBar">
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:colorPrimaryDark">@android:color/darker_gray</item>
+        <item name="android:colorPrimary">@android:color/background_light</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+</resources>
