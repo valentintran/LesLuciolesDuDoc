@@ -21,7 +21,7 @@ import java.util.Map;
  */
 /** This class is the adapter we use to adapt video fragments in a list of fragment
  * we show on the screen*/
-public final class PageAdapter extends BaseAdapter {
+final class PageAdapter extends BaseAdapter {
 
     private final List<VideoEntry> entries;
     private final List<View> entryViews;
@@ -31,7 +31,7 @@ public final class PageAdapter extends BaseAdapter {
 
     private boolean labelsVisible;
 
-    public PageAdapter(Context context, List<VideoEntry> entries) {
+    PageAdapter(Context context, List<VideoEntry> entries) {
         this.entries = entries;
 
         entryViews = new ArrayList<View>();
@@ -42,13 +42,13 @@ public final class PageAdapter extends BaseAdapter {
         labelsVisible = true;
     }
 
-    public void releaseLoaders() {
+    void releaseLoaders() {
         for (YouTubeThumbnailLoader loader : thumbnailViewToLoaderMap.values()) {
             loader.release();
         }
     }
 
-    public void setLabelVisibility(boolean visible) {
+    void setLabelVisibility(boolean visible) {
         labelsVisible = visible;
         for (View view : entryViews) {
             view.findViewById(R.id.text).setVisibility(visible ? View.VISIBLE : View.GONE);

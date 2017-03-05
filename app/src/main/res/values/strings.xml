@@ -1,5 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Les Lucioles Du Doc</string>
     <string name="example_mail">mail@example.fr</string>
     <string name="exemple_password">Password</string>
@@ -7,6 +6,8 @@
     <string name="see_the_version">Voir la version </string>
     <string name="browser">navigateur</string>
     <string name="youtube_api_demo">YouTube API Demos</string>
+    <string name="see_unrated_videos">See unrated movies</string>
+    <string name="click_to_see_videos">Click here to see movies</string>
 
     <string name="videowall_demo_name">Video Wall</string>
     <string name="videolist_demo_name">Video List</string>

@@ -17,7 +17,8 @@ public final class VideoListFragment extends ListFragment {
     private static final int ANIMATION_DURATION_MILLIS = 300;
 
     private static List<VideoEntry> VIDEO_LIST;
-
+    /** We need the video list here that we got in VideoListActivity from parsing json array
+     * got after the request to the DB*/
 
     private PageAdapter adapter;
     private View videoBox;

@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -16,13 +15,14 @@ import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.android.volley.Response;
 import com.google.android.youtube.player.YouTubeApiServiceUtil;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer.OnFullscreenListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+
+import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -35,7 +35,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
  * rebuffering.
  */
 @TargetApi(13)
-public final class VideoListDemoActivity extends Activity implements OnFullscreenListener {
+public final class VideoListActivity extends Activity implements OnFullscreenListener {
 
 
     private static final int ANIMATION_DURATION_MILLIS = 300;
@@ -47,6 +47,15 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
 
     private VideoListFragment listFragment;
     private VideoFragment videoFragment;
+    private List<VideoEntry> videoList;
+
+    public List<VideoEntry> getVIDEO_LIST() {
+        return videoList;
+    }
+
+    public void setVIDEO_LIST(List<VideoEntry> videoList) {
+        this.videoList = videoList;
+    }
 
     private View videoBox;
     private View closeButton;
@@ -56,33 +65,20 @@ public final class VideoListDemoActivity extends Activity implements OnFullscree
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.video_list_demo);
 
-        Response.Listener<String> responseListener = new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response){
-                try{
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("name");
-                    if (success){
-                        String title = jsonResponse.getString("title");
-                        String link = jsonResponse.getString("link");
-                        /**Here we get response in json and parse it, we need to store it in
-                         * a List<VideoEntry> called VIDEO_LIST used in VideoListFragment.java */
-                    }
-                    else{
-                        AlertDialog.Builder builder = new AlertDialog.Builder(VideoListDemoActivity.this);
-                        builder.setMessage("Error while loading movies")
-                                .setNegativeButton("Retry", null)
-                                .create()
-                                .show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+        Intent intent = getIntent();
+        String titles = intent.getStringExtra("titles");
+        String links = intent.getStringExtra("links");
+        try{
+            JSONArray titlesArray = new JSONArray(titles);
+            JSONArray linksArray = new JSONArray(links);
+            /** Here we need to put these titles and links into a list of VideoEntry
+             * with the titles and links toString
+             * and then push them to the VideoListFragment*/
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
 
         listFragment = (VideoListFragment) getFragmentManager().findFragmentById(R.id.list_fragment);
         videoFragment = (VideoFragment) getFragmentManager().findFragmentById(R.id.video_fragment_container);

@@ -18,9 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebViewActivity"/>
-        <activity android:name=".VideoListDemoActivity"
-            android:theme="@style/Theme.Black.NoTitleBar.AppTheme"/>
+        <activity android:name=".WebViewActivity" />
+        <activity
+            android:name=".VideoListActivity"
+            android:theme="@style/Theme.Black.NoTitleBar.AppTheme" />
+        <activity android:name=".ChooseVideoActivity"></activity>
     </application>
 
 </manifest>
