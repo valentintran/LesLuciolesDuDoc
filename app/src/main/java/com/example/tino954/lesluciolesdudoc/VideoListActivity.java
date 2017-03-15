@@ -22,7 +22,7 @@ import com.google.android.youtube.player.YouTubePlayer.OnFullscreenListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -47,13 +47,13 @@ public final class VideoListActivity extends Activity implements OnFullscreenLis
 
     private VideoListFragment listFragment;
     private VideoFragment videoFragment;
-    private List<VideoEntry> videoList;
+    public ArrayList<VideoEntry> videoList;
 
-    public List<VideoEntry> getVIDEO_LIST() {
+    public ArrayList<VideoEntry> getVideoList() {
         return videoList;
     }
 
-    public void setVIDEO_LIST(List<VideoEntry> videoList) {
+    public void setVideoList(ArrayList<VideoEntry> videoList) {
         this.videoList = videoList;
     }
 
@@ -76,6 +76,10 @@ public final class VideoListActivity extends Activity implements OnFullscreenLis
             /** Here we need to put these titles and links into a list of VideoEntry
              * with the titles and links toString
              * and then push them to the VideoListFragment*/
+            VideoEntries videoList;
+            for (int i = 0; i<titlesArray.length(); i++) {
+
+            }
         } catch (JSONException e){
             e.printStackTrace();
         }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,16 +17,24 @@ public final class VideoListFragment extends ListFragment {
     /** The duration of the animation sliding up the video in portrait. */
     private static final int ANIMATION_DURATION_MILLIS = 300;
 
-    private static List<VideoEntry> VIDEO_LIST;
+    private List<VideoEntry> VIDEO_LIST;
     /** We need the video list here that we got in VideoListActivity from parsing json array
      * got after the request to the DB*/
 
     private PageAdapter adapter;
     private View videoBox;
 
+    public static VideoListFragment newInstance(ArrayList<VideoEntry> entries) {
+        VideoListFragment fragment = new VideoListFragment();
+        Bundle arguments = new Bundle();
+        arguments.putParcelableArrayList("entries", entries);
+        fragment.setArguments(arguments);
+        return fragment;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        VIDEO_LIST = getArguments().getParcelableArrayList("entries");
         adapter = new PageAdapter(getActivity(), VIDEO_LIST);
     }
 
